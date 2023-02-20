@@ -1,0 +1,35 @@
+{% extends "app/base.html" %} 
+{% block title %}EMIS | ponpesabduldhohir{% endblock %} 
+
+{% block body %}
+    <h1 class="my-4">Detail -
+        <small>{{ person.name }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Nama lengkap:</strong> {{ person.name }}</li>
+              <li class="list-group-item"><strong>Tahun:</strong> {{ person.tahun }}</li>
+              <li class="list-group-item"><strong>Pendidikan terakhir:</strong> {{ person.pendidikan }}</li>
+              <li class="list-group-item"><strong>NIS:</strong> {{ person.nis }}</li>
+              <li class="list-group-item"><strong>NIK:</strong> {{ person.nik }}</li>
+              <li class="list-group-item"><strong>Tanggal masuk:</strong> {{ person.tgl_masuk }}</li>
+              <li class="list-group-item"><strong>Tanggal lulus:</strong> {{ person.tgl_lulus }}</li>
+              <li class="list-group-item"><strong>Tempat lahir:</strong> {{ person.tempat_lahir }}</li>
+              <li class="list-group-item"><strong>Tanggal lahir:</strong> {{ person.tgl_lahir }}</li>
+              <li class="list-group-item"><strong>Alamat:</strong> {{ person.alamat }}</li>
+              <li class="list-group-item"><strong>Nama Orang tua:</strong> {{ person.nama_ortu }}</li>
+              <li class="list-group-item"><strong>No Hp:</strong> {{ person.no_hp }}</li>
+              <li class="list-group-item"><strong>Gender:</strong> {{ person.jk }}</li>
+              <li class="list-group-item"><strong>Status:</strong> {{ person.status }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-8">
+                <a href="{% url 'update' person.id %}"><button type="button" class="btn btn-success">Edit</button></a>
+                <a href="{% url 'list' %}"><button type="button" class="btn btn-secondary">Back</button></a>
+        </div>
+    </div>
+{% endblock %}

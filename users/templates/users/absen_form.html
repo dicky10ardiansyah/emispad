@@ -1,0 +1,30 @@
+{% extends "users/base.html" %} 
+{% load crispy_forms_tags %}
+{% block title %}EMIS | ponpesabduldhohir{% endblock %} 
+
+{% block body %}
+
+<h1>Register Santri Absen</h1>
+<form method="POST">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <legend class="border-bottom mb-4">
+      Daftar siswa baru
+    </legend>
+    {{form| crispy}} 
+    {{profile_form| crispy}}
+  </fieldset>
+
+  <div class="form-group mt-3">
+    <button class="btn btn-outline-success" type="submit">
+      Simpan
+    </button>
+  </div>
+</form>
+
+<script>
+  $("#timePicker").datetimepicker({
+    format: "Y-m-d",
+  });
+</script>
+{% endblock %}

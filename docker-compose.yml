@@ -1,0 +1,8 @@
+version: '3'
+services: 
+  emis:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/app

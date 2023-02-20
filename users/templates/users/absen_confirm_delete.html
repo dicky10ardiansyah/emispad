@@ -1,0 +1,9 @@
+{% extends "users/base.html" %}
+{% block title %}EMIS | ponpesabduldhohir{% endblock %}
+{% block body %}
+<h1>Hapus Santri</h1>
+<form method="post">{% csrf_token %}
+  Kamu yakin ingin menghapus data "{{ object }}" ?
+  <input class="btn btn-danger" type="submit" value="Hapus" />
+</form>
+{% endblock %}

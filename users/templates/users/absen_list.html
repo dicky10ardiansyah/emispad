@@ -1,0 +1,48 @@
+{% extends "users/base.html" %} 
+{% block title %}EMIS | ponpesabduldhohir{% endblock %} 
+{% block body %}
+
+<h2>Data Santri Pondok Pesantren Abdul Dhohir</h2>
+<div class="container">
+  <div class="row">
+    {% if userprofiles %}
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nama</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Tanggal lahir</th>
+            <th scope="col">Nama orang tua</th>
+            <th scope="col">Posisi</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for userprofile in userprofiles %}
+          <tr>
+            <td>{{ userprofile.nama }}</td>
+            <td>{{ userprofile.jk }}</td>
+            <td>{{ userprofile.tgl_lahir }}</td>
+            <td>{{ userprofile.nama_ortu }}</td>
+            <td><span class="btn btn-success">{{ userprofile.posisi }}</span></td>
+            <td>
+              <a class="btn btn-outline-info" href="{% url 'absen_detail' userprofile.id %}">Detail</a>
+              <a class="btn btn-outline-danger" href="{% url 'absen_delete' userprofile.id %}">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+          Data tidak ditemukan atau belum terdaftar.
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

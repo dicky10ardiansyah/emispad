@@ -1,0 +1,233 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <title>EMIS | ponpesabduldhohir</title>
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon" />
+    <link
+      href="{% static 'assets/img/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages">
+      <div
+        class="container d-flex align-items-center justify-content-lg-between"
+      >
+        <h1 class="logo me-auto me-lg-0">
+          <a href="{% url 'dashboard' %}">PAD<span>.</span></a>
+        </h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>EMIS Pondok Pesantren Abdul Dhohir</h2>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <section class="inner-page services" id="services">
+
+        <!-- ======= Services Section ======= -->
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-8">
+              {% if messages %} 
+              {% for message in messages%}
+              <div class="alert alert-{{message.tags}}">{{message}}</div>
+              {%endfor %} 
+              {%endif%}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">Sistem Absensi Wajah</th>
+                    <th scope="col">Sistem Input Santri</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <a href="{%url 'register' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning">Register Santri</a>
+                    </th>
+                    <td><a href="{% url 'list' %}" class="btn btn-success w-100">Input Manual data Santri</a></td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'add-photos'%}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning"
+                        >Input Foto Santri</a
+                      >
+                    </th>
+                  </tr>
+                  <tr>
+                    <th><a id="train" href="{%url 'train' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning">Train Biometric</a></th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'view-attendance-home' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning"
+                        >Lihat laporan Absensi wajah</a
+                      >
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'mark-your-attendance' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning">Absen Masuk</a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'mark-your-attendance-out' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning"
+                        >Absen Keluar</a
+                      >
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'delete-photos' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-danger"
+                        >Hapus foto</a
+                      >
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a href="{%url 'absen_list' %}" style="color: rgb(10, 10, 10);" class="w-100 btn btn-outline-warning"
+                        >Detail Absensi Santri</a
+                      >
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>PONDOK ABDUL DHOHIR</h3>
+                <p>
+                  Patam Lestari, Kec. Sekupang,<br />
+                  Kota Batam, Kepulauan Riau 29424 <br /><br />
+                  <strong>Phone:</strong> +62813 6596 3075<br />
+                  <strong>Email:</strong> ponpesabduldhohir@gmail.com<br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">&copy; Ponpesabduldhohir</div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <!-- ======= Sweatalert ======= -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.getElementById("train").addEventListener("click", function () {
+        Swal.fire({
+          title: "Perhatian!",
+          text: "Proses training akan membutuhkan waktu yang lama. Mohon tunggu hingga proses training selesai.",
+          icon: "info",
+          confirmButtonText: "Ok",
+        });
+      });
+    </script>
+  </body>
+</html>

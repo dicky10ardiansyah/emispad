@@ -1,0 +1,28 @@
+{% extends "users/base.html" %} 
+{% block title %}EMIS | ponpesabduldhohir{% endblock %} 
+
+{% block body %}
+    <h1 class="my-4">Detail -
+        <small>{{ userprofile.nama }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Nama lengkap:</strong> {{ userprofile.nama }}</li>
+              <li class="list-group-item"><strong>Gender:</strong> {{ userprofile.jk }}</li>
+              <li class="list-group-item"><strong>Tanggal lahir:</strong> {{ userprofile.tgl_lahir }}</li>
+              <li class="list-group-item"><strong>Tempat lahir:</strong> {{ userprofile.tempat_lahir }}</li>
+              <li class="list-group-item"><strong>Alamat:</strong> {{ userprofile.alamat }}</li>
+              <li class="list-group-item"><strong>Posisi:</strong> {{ userprofile.posisi }}</li>
+              <li class="list-group-item"><strong>Kondisi:</strong> {{ userprofile.kondisi }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-8">
+            <a href="{% url 'absen_update' userprofile.id %}"><button type="button" class="btn btn-success">Edit</button></a>
+            <a href="{% url 'absen_list' %}"><button type="button" class="btn btn-secondary">Back</button></a>
+        </div>
+    </div>
+{% endblock %}

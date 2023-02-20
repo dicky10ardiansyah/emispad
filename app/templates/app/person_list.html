@@ -1,0 +1,48 @@
+{% extends "app/base.html" %} 
+{% block title %}EMIS | ponpesabduldhohir{% endblock %} 
+{% block body %}
+
+<h2>Data Santri Pondok Pesantren Abdul Dhohir</h2>
+<div class="container">
+  <div class="row">
+    {% if persons %}
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nama</th>
+            <th scope="col">Tahun Masuk</th>
+            <th scope="col">NIS</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for person in persons %}
+          <tr>
+            <td>{{ person.name }}</td>
+            <td>{{ person.tahun }}</td>
+            <td>{{ person.nis }}</td>
+            <td>{{ person.jk }}</td>
+            <td><span class="btn btn-success">{{ person.status }}</span></td>
+            <td>
+              <a class="btn btn-outline-info" href="{% url 'detail' person.id %}">Detail</a>
+              <a class="btn btn-outline-danger" href="{% url 'delete' person.id %}">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+          Data tidak ditemukan atau belum terdaftar.
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
